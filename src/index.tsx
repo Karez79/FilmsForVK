@@ -1,15 +1,13 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './store/store';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const store = createStore(rootReducer);
+const container = document.getElementById('root');
+const root = createRoot(container!);
 
-const App = () => (
-  <Provider store={store}>
-    <div>Hello, React with TypeScript and Redux!</div>
-  </Provider>
+root.render(
+  <Router>
+    <App />
+  </Router>
 );
-
-ReactDOM.render(<App />, document.getElementById('root'));

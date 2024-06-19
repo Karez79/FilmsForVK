@@ -1,0 +1,33 @@
+.movieCard {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .movieCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .movieCard__poster {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .movieCard__info {
+    padding: 15px;
+  }
+  
+  .movieCard__title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .movieCard__year,
+  .movieCard__rating {
+    font-size: 0.9em;
+    color: #777;
+  }
+  
