@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+    entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -23,7 +23,11 @@ module.exports = {
         loader: 'source-map-loader'
       },
       {
-        test: /\.(png|jpe?g|gif|svg|ico)$/i,
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|ico|webp)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -52,14 +56,16 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: {
+      directory: path.join(__dirname, 'public')
+    },
     compress: true,
     port: 9000
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      favicon: './src/favicon.ico'  // Добавьте эту строку для favicon
+      template: './public/index.html',
+      favicon: './src/images/favicon.webp'
     })
   ]
 };
